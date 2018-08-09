@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EventList from "./EventList";
+import EventForm from "./EventForm";
 
 class EventDashboard extends Component {
 	render() {
@@ -9,8 +10,9 @@ class EventDashboard extends Component {
 					<EventList />
 				</div>
 
-				<div className="col-md-3">
-					<h1>Right Side</h1>
+				<div className="col-md-4">
+					<a href="#" className="btn btn-success">Create Event</a>
+					<EventForm />
 				</div>
 			</div>
 		);
