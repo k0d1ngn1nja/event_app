@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import EventList from "./EventList";
 
 class EventDashboard extends Component {
 	render() {
 		return (
 			<div className="row">
 				<div className="col-md-8">
-					<h1>Left Side</h1>
+					<EventList />
 				</div>
 
 				<div className="col-md-3">

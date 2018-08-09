@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from "./Layout/Navigation/Navbar";
-import EventDashboard from "./Event/events_dashboard";
+import EventDashboard from "./Event/EventsDashboard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
