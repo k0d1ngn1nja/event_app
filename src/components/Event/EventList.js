@@ -11,7 +11,6 @@ class EventList extends Component{
 
 		return (
 			<div>
-				<h1 className="page-header">Event List</h1>
 				{ eventItem }
 			</div>
 		);

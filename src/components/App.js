@@ -9,7 +9,9 @@ class App extends Component {
     	<div>
     		<NavBar />
 	      <div className="container">
-	        <EventDashboard />
+          <main> 
+	         <EventDashboard />
+          </main>
 	      </div>
 	    </div>
     );

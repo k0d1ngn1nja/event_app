@@ -55,15 +55,40 @@ const eventsData = [
 
 
 class EventDashboard extends Component {
+	constructor(props){
+		super(props);
+
+		this.state = {
+			events: eventsData,
+			isOpen: false
+		}
+	}
+
+	handleFormOpen = () =>{
+		this.setState({isOpen: !this.state.isOpen})
+	}
+
 	render() {
 		return (
 			<div className="row">
 				<div className="col-md-8">
-					<EventList events={eventsData}/>
+					<EventList events={this.state.events}/>
 				</div>
 
 				<div className="col-md-4">
-					<EventForm />
+					<div>
+						<span
+							onClick={this.handleFormOpen}
+							className="newEvent_icon_btn">
+							<i className={this.state.isOpen ? "fas fa-minus" : "fas fa-plus"}></i>
+						</span>
+
+						{ this.state.isOpen &&
+							<div className="well">
+								<EventForm />
+							</div>
+						}
+					</div>
 				</div>
 			</div>
 		);

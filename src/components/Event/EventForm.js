@@ -27,8 +27,7 @@ class EventForm extends Component {
 				    <label htmlFor="event_host">Hosted By</label>
 				    <input type="text" className="form-control" id="event_host" placeholder="Event hosted by..." />
 				  </div>
-				  <button type="submit" className="btn btn-default">Submit</button><span> </span>
-				  <button type="submit" className="btn btn-danger">Cancel</button>
+				  <button type="submit" className="btn btn-default">Submit</button>
 				</form>
 			</div>
 		);
