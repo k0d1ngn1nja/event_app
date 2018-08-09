@@ -3,6 +3,7 @@ import EventPatrons from "./EventPatronsList";
 
 class EventListItem extends Component {
 	render() {
+		const { event } = this.props;
 
 		return (
 			<div className="panel panel-default">
@@ -10,20 +11,20 @@ class EventListItem extends Component {
 					<div className="row">
 						<div className="col-sm-2">
 							<a href="#">
-								<img src="https://randomuser.me/api/portraits/women/84.jpg" alt="Avatar" className="img-circle thumbnailImg"/>
+								<img src={event.hostPhotoURL} alt="Avatar" className="img-circle thumbnailImg"/>
 							</a>
 						</div>
 						<div className="col-sm-10">
-							<h3 className="panel-title">Main Event One</h3>
-							<p><b>Hosted By:</b> Jennifer Lopez</p><hr/>
+							<h3 className="panel-title">{event.title}</h3>
+							<p><b>Hosted By:</b> {event.hostedBy}</p><hr/>
 
 							<div className="panel-meta">
 								<p>
 									<span className="event-time">
-										<i className="fas fa-clock"></i>Today, 1:00pm
+										<i className="fas fa-clock"></i>Today, {event.date}
 									</span>
 									<span className="event-location">
-									 	<i className="fas fa-map"></i> Toronto
+									 	<i className="fas fa-map"></i> {event.city}
 									 </span> 
 								</p>
 							</div>
@@ -33,16 +34,14 @@ class EventListItem extends Component {
 
 				<div className="panel-body">
 					<ul className="list-inline">
-						<EventPatrons />
-						<EventPatrons />
-						<EventPatrons />
-						<EventPatrons />
-						<EventPatrons />
+						{event.attendees.map((guest) =>{
+							return <EventPatrons key={guest.id} guest={guest} />
+						})}
 					</ul>
 				</div>
 
 				<div className="panel-footer clearfix">
-					<span>Join me for a relaxed lunch in this great pub in Paddington with a delicious menu.</span>
+					<span>{event.description}</span>
 					<span className="pull-right"><a href="#" className="btn btn-primary btn-sm">VIEW</a></span>
 				</div>
 			</div>
