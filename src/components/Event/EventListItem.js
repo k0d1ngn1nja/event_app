@@ -34,7 +34,7 @@ class EventListItem extends Component {
 
 				<div className="panel-body">
 					<ul className="list-inline">
-						{event.attendees.map((guest) =>{
+						{event.attendees && event.attendees.map((guest) =>{
 							return <EventPatrons key={guest.id} guest={guest} />
 						})}
 					</ul>
