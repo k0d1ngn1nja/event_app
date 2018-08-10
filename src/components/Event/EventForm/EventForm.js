@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import InputField from "./InputField";
 
+const initialize_data = { title: "", date: "", venue: "", city: "", hostedBy: ""};
+
 class EventForm extends Component {
 	state = {
-		event: {
-			title: "",
-			date: "",
-			venue: "",
-			city: "",
-			hostedBy: "",
-		}
+		event: initialize_data
 	};
+	
+	componentDidMount(){
+		if(this.props.selectedEvent !== null){
+			this.setState({event: this.props.selectedEvent})
+		}
+	}
+
+	componentWillReceiveProps(nextProps){
+		if(nextProps.selectedEvent !== this.props.selectedEvent){
+			this.setState({
+				event: nextProps.selectedEvent || initialize_data
+			})
+		}
+	}
 
 	onInputChange = (e) =>{
 		this.setState({
