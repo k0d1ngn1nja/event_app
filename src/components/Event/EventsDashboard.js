@@ -58,15 +58,15 @@ const eventsData = [
 class EventDashboard extends Component {
 	constructor(props){
 		super(props);
-
 		this.state = {
 			events: eventsData,
-			isOpen: false
+			isOpen: false,
+			selectedEvent: null
 		}
 	}
 
 	handleFormOpen = () =>{
-		this.setState({isOpen: !this.state.isOpen})
+		this.setState({isOpen: !this.state.isOpen, selectedEvent: null})
 	}
 
 	handleCreateEvent = (newevent) =>{
@@ -79,11 +79,20 @@ class EventDashboard extends Component {
 		})
 	}
 
+	handleEditEvent = (event) => () =>{
+		this.setState({
+			selectedEvent: event,
+			isOpen: true
+		})
+	}
+
 	render() {
+		const { selectedEvent } = this.state;
+
 		return (
 			<div className="row">
 				<div className="col-md-8">
-					<EventList events={this.state.events}/>
+					<EventList onEditEvent={this.handleEditEvent} events={this.state.events}/>
 				</div>
 
 				<div className="col-md-4">
@@ -96,7 +105,7 @@ class EventDashboard extends Component {
 
 						{ this.state.isOpen &&
 							<div className="well">
-								<EventForm createEvent={this.handleCreateEvent} />
+								<EventForm selectedEvent={selectedEvent} createEvent={this.handleCreateEvent} />
 							</div>
 						}
 					</div>

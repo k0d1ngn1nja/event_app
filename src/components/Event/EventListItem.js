@@ -3,7 +3,7 @@ import EventPatrons from "./EventPatronsList";
 
 class EventListItem extends Component {
 	render() {
-		const { event } = this.props;
+		const { event, onEditEvent } = this.props;
 
 		return (
 			<div className="panel panel-default">
@@ -42,7 +42,7 @@ class EventListItem extends Component {
 
 				<div className="panel-footer clearfix">
 					<span>{event.description}</span>
-					<span className="pull-right"><a href="#" className="btn btn-primary btn-sm">VIEW</a></span>
+					<span className="pull-right"><a onClick={onEditEvent(event)} className="btn btn-primary btn-sm">VIEW</a></span>
 				</div>
 			</div>
 		);
