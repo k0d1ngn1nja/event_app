@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react';
-
+import React from 'react';
 
 const EventDetails = (props) => {
   return (
@@ -8,6 +7,5 @@ const EventDetails = (props) => {
 		</div>      
   );
 };
-
 
 export default EventDetails;
