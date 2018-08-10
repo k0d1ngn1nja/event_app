@@ -3,7 +3,7 @@ import EventPatrons from "./EventPatronsList";
 
 class EventListItem extends Component {
 	render() {
-		const { event, onEventOpen } = this.props;
+		const { event, onEventOpen, deleteEvent } = this.props;
 
 		return (
 			<div className="panel panel-default">
@@ -25,7 +25,8 @@ class EventListItem extends Component {
 									</span>
 									<span className="event-location">
 									 	<i className="fas fa-map"></i> {event.city}
-									 </span> 
+									</span> 
+									<span><a onClick={deleteEvent(event.id)}><i className="fas fa-trash"></i></a></span>
 								</p>
 							</div>
 						</div>
