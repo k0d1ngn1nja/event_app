@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import { NavLink, Link } from "react-router-dom";
+import NavList from "./NavList";
 
 class NavBar extends Component{
+	state = {
+		authenticated: false
+	}
+
+	handleSignIn = () =>{
+		this.setState({
+			authenticated: true
+		});
+	}
+
+	handleSignOut = () =>{
+		this.setState({
+			authenticated: false
+		});
+		this.props.history.push("/")
+	}
+
   render(){
   	return(
 			<nav className="navbar navbar-inverse navbar-fixed-top">
@@ -17,13 +35,7 @@ class NavBar extends Component{
 			    </div>
 
 			    <div id="navbar" className="collapse navbar-collapse">
-			      <ul className="nav navbar-nav navbar-right">
-			        <li><NavLink activeClassName="active" to="/">Home <i className="fas fa-home"></i></NavLink></li>
-			        <li><Link to="/events">Events</Link></li>
-			        <li><Link to="/events/new">Add Event <i className="fas fa-plus"></i></Link></li>
-			        <li><Link to="/users">Users <i className="fas fa-users"></i></Link></li>
-			        <li><Link to="/settings">Settings <i className="fas fa-cogs"></i></Link></li>
-			      </ul>
+			      <NavList isAuthenticated={this.state.authenticated} signIn={this.handleSignIn} signOut={this.handleSignOut}/>
 			    </div>
 			  </div>
 			</nav>
