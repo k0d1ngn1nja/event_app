@@ -7,7 +7,7 @@ import EventDetails from "./Event/EventDetails";
 import UsersDashboard from "./User/UsersDashboard";
 import UserProfile from "./User/Account/UserProfile";
 import Home from "./Home/Homepage";
-import SettingsDashboard from "./User/Account/SettingsDashboard";
+import SettingsDashboard from "./User/Settings/SettingsDashboard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {

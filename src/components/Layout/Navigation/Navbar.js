@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from "react-router-dom";
 import NavList from "./NavList";
+import { NavLink, withRouter } from "react-router-dom";
 
 class NavBar extends Component{
 	state = {
@@ -43,4 +43,4 @@ class NavBar extends Component{
   }
 };
 
-export default NavBar;
+export default withRouter(NavBar);
