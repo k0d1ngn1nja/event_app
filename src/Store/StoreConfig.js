@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware } from "redux";
-import rootReducer from "../reducers/rootReducer";
+import rootReducer from "../Reducers/rootReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 export const configureStore = (initialState) =>{
@@ -12,8 +12,8 @@ export const configureStore = (initialState) =>{
 	
 	if(process.env.NODE_ENV !== "production"){
 		if(module.hot){
-			module.hot.accept("../reducers/rootReducer", () =>{
-				const newRootReducer = require("../reducers/rootReducer").default;
+			module.hot.accept("../Reducers/rootReducer", () =>{
+				const newRootReducer = require("../Reducers/rootReducer").default;
 				store.replaceReducer(newRootReducer);
 			})
 		}

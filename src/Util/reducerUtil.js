@@ -1,7 +1,7 @@
-export const createReducer = (initialState, fnMap) =>{
+export const CreateEventReducer = (initialState, fnMap) =>{
 	return (state = initialState, action) =>{
 		const handler = fnMap[action.type];
 
-		return handler ? handler(state, action.payload) : state;
+		return handler ? handler(state, action) : state;
 	}
 }
