@@ -10,5 +10,13 @@ export const configureStore = (initialState) =>{
 
 	const store = createStore(rootReducer, initialState, composedEnhancer);
 	
+	if(process.env.NODE_ENV !== "production"){
+		if(module.hot){
+			module.hot.accept("../reducers/rootReducer", () =>{
+				const newRootReducer = require("../reducers/rootReducer").default;
+				store.replaceReducer(newRootReducer);
+			})
+		}
+	}
 	return store;
 };
