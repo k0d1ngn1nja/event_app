@@ -109,7 +109,7 @@ class EventDashboard extends Component {
 
 	render() {
 		const { selectedEvent } = this.state;
-
+		
 		return (
 			<div className="row">
 				<div className="col-md-8">

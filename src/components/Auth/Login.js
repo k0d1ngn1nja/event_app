@@ -13,7 +13,7 @@ const Login = (props) =>{
 	        <li><NavLink to="/">My Profile <i className="fas fa-user"></i></NavLink></li>
 	        <li><NavLink to="/users">Users <i className="fas fa-users"></i></NavLink></li>
 	        <li><NavLink to="/settings">Settings <i className="fas fa-cogs"></i></NavLink></li>
-	        <li role="separator" class="divider"></li>
+	        <li role="separator" className="divider"></li>
 	        <li><a onClick={props.signOut}>Logout <i className="fas fa-power-off"></i></a></li>
 	      </ul>
 	    </li>

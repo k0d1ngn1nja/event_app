@@ -1,6 +1,7 @@
-import { combineReducer } from "redux";
+import React from "react";
+import { combineReducers } from "redux";
 
-const rootReducer = combineReducer({
+const rootReducer = combineReducers({
 
 });
 
