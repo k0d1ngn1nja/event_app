@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import EventList from "./EventList";
 import EventForm from "./EventForm/EventForm";
 import cuid from "cuid";
+import { connect } from "react-redux";
 
 class EventDashboard extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			events: eventsData,
-			isOpen: false,
-			selectedEvent: null
-		}
+	state = {
+		isOpen: false,
+		selectedEvent: null
 	}
 
 	handleFormOpen = () =>{
@@ -57,11 +54,12 @@ class EventDashboard extends Component {
 
 	render() {
 		const { selectedEvent } = this.state;
-		
+		const { events } = this.props;
+
 		return (
 			<div className="row">
 				<div className="col-md-8">
-					<EventList updateEvent={this.handleUpdateEvent} deleteEvent={this.handleDeleteEvent} onEventOpen={this.handleOpenEvent} events={this.state.events}/>
+					<EventList updateEvent={this.handleUpdateEvent} deleteEvent={this.handleDeleteEvent} onEventOpen={this.handleOpenEvent} events={events}/>
 				</div>
 
 				<div className="col-md-4">
@@ -84,4 +82,10 @@ class EventDashboard extends Component {
 	}
 }
 
-export default EventDashboard;
+const mapStateToProps = (state) =>({
+	events: state.events
+});
+
+
+
+export defaultconnect(mapStateToProps)(EventDashboard);

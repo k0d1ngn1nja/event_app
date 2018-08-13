@@ -1,4 +1,5 @@
 import { CREATE_EVENT, UPDATE_EVENT, DELETE_EVENT } from "../Actions/Events/EventActions";
+import { CreateEventReducer } from "../Util/reducerUtil";
 
 const initialState = [
   {
