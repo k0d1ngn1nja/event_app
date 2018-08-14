@@ -1,6 +1,10 @@
+import cuid from "cuid";
 import React, { Component } from 'react';
 import InputField from "./InputField";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+import { createEventAction, updateEventAction } from "../../../Actions/Events/EventActions";
+
+const actions = { createEventAction, updateEventAction };
 
 class EventForm extends Component {
 	state = {
@@ -16,9 +20,12 @@ class EventForm extends Component {
 	onFormSubmit = (e) =>{
 		e.preventDefault();
 		if(this.state.event.id){
-			this.props.updateEvent(this.state.event);
+			this.props.updateEventAction(this.state.event);
+			this.props.history.goBack();
 		} else{
-			this.props.createEvent(this.state.event);
+			const newEvent = {...this.state.event, id: cuid(), hostPhotoURL: "/assets/images/user.png"};
+			this.props.createEventAction(newEvent);
+			this.props.history.push("/events");
 		}
 	}
 
@@ -71,6 +78,7 @@ class EventForm extends Component {
 						/>
 
 					  <button type="submit" className="btn btn-default">Submit</button>
+					  <button onClick={this.props.history.goBack} type="button" className="btn btn-danger">Cancel</button>
 					</form>
 				</div>
 			</div>
@@ -89,5 +97,6 @@ const mapStateToProps = (state, myProps) =>{
 	return{
 		event
 	}
-}
-export default connect(mapStateToProps)(EventForm);
+};
+
+export default connect(mapStateToProps, actions)(EventForm);
