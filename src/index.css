@@ -84,3 +84,31 @@ main{
 }
 
 
+/*=================
+Event Details Page
+==================*/
+#event_details .panel-body{
+	position: relative;
+	top: 0;
+	left: 0;
+	padding: 0;
+}
+
+#event_details .panel-body img{
+	width: 100%;
+	max-width: 100%;
+	filter: brightness(40%);
+}
+
+#event_details .panel-body .event-meta-box{
+	position: absolute;
+	bottom: 5%;
+	left: 5%;
+	width: 100%;
+	height: auto;
+	color: #fff;
+}
+
+#event_details .panel-footer span:not(:last-child){
+	margin-right: 10px;
+}

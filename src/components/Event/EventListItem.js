@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import EventPatrons from "./EventPatronsList";
 
 const EventListItem = (props) =>{
-	const { event, onEventOpen, deleteEvent } = props;
+	const { event, deleteEvent } = props;
 	
 	return (
 		<div className="panel panel-default">
@@ -42,7 +43,9 @@ const EventListItem = (props) =>{
 
 			<div className="panel-footer clearfix">
 				<span>{event.description}</span>
-				<span className="pull-right"><a onClick={() => onEventOpen(event)} className="btn btn-primary btn-sm">VIEW</a></span>
+				<span className="pull-right">
+					<Link to={"/event/"+event.id} className="btn btn-primary btn-sm">VIEW</Link>
+				</span>
 			</div>
 		</div>
 	);
