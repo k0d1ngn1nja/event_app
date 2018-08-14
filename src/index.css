@@ -38,6 +38,25 @@ hr{
 	border-top: 1px solid #ddd;
 }
 
+a:hover{
+	text-decoration: none;
+}
+
+/*==========
+UTILITY
+===========*/
+.mtb-5{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.no-pad{
+	padding: 0;
+}
+
+.no-margin{
+	margin: 0;
+}
+
 h3.panel-title{
 	margin: 0 0 8px 0;
 }
@@ -111,4 +130,79 @@ Event Details Page
 
 #event_details .panel-footer span:not(:last-child){
 	margin-right: 10px;
+}
+
+
+/*Event Comment Section*/
+.event_comments{
+	list-style: none;
+	margin: .5em 0 0;
+	border: none;
+	line-height: 1.2;
+}
+
+.comment{
+	margin: 25px 0;
+}
+
+.comment .avatar{
+	display: block;
+	width: 4.5em;
+	padding: 2px;
+	height: auto;
+	float: left;
+	margin: 8px 7px 0 7px;
+}
+
+.comment .avatar img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	border-radius: 25px;
+}
+
+.comment_content{
+	display: block;
+	padding: 10px;
+}
+
+.comment_content .metadata{
+	color: #ccc;
+	font-size: 12px;
+}
+
+.comment_content .author{
+	color: #000;
+	cursor: pointer;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.comment_content p{
+	margin: 5px 0;
+}
+
+.comment_content .reply{
+	color: #ccc;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+textarea, 
+textarea.form-control{
+	padding-top: 10px;
+  padding-bottom: 5px;
+  line-height: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  border-radius: 0;
+}
+
+img.sm-avatar{
+	width: 40px;
+	height: auto; 
+	display: inline-block; 
+	margin-right: 7px;
 }
