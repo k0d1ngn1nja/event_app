@@ -9,7 +9,7 @@ const EventListItem = (props) =>{
 			<div className="panel-heading">
 				<div className="row">
 					<div className="col-sm-2">
-						<a href="#">
+						<a href="">
 							<img src={event.hostPhotoURL} alt="Avatar" className="img-circle thumbnailImg"/>
 						</a>
 					</div>
@@ -25,7 +25,7 @@ const EventListItem = (props) =>{
 								<span className="event-location">
 								 	<i className="fas fa-map"></i> {event.city}
 								</span> 
-								<span><a onClick={deleteEvent(event.id)}><i className="fas fa-trash"></i></a></span>
+								<span><a onClick={() => deleteEvent(event.id)}><i className="fas fa-trash"></i></a></span>
 							</p>
 						</div>
 					</div>
@@ -42,7 +42,7 @@ const EventListItem = (props) =>{
 
 			<div className="panel-footer clearfix">
 				<span>{event.description}</span>
-				<span className="pull-right"><a onClick={onEventOpen(event)} className="btn btn-primary btn-sm">VIEW</a></span>
+				<span className="pull-right"><a onClick={() => onEventOpen(event)} className="btn btn-primary btn-sm">VIEW</a></span>
 			</div>
 		</div>
 	);

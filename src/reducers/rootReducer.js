@@ -1,4 +1,3 @@
-import React from "react";
 import eventReducer from "./eventReducer";
 import { combineReducers } from "redux";
 

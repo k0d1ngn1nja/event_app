@@ -6,7 +6,7 @@ class EventPatronsList extends Component {
 
 		return (
 			<li>
-				<a href="#">
+				<a href="">
 					<img src={guest.guest.photoURL} alt="Avatar" className="img-circle" style={{width: "40px", height: "40px"}}/>
 				</a>
 			</li>

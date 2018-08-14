@@ -3,6 +3,7 @@ import EventList from "./EventList";
 import EventForm from "./EventForm/EventForm";
 import cuid from "cuid";
 import { connect } from "react-redux";
+import { createEventAction, updateEventAction, deleteEventAction } from "../../Actions/Events/EventActions";
 
 class EventDashboard extends Component {
 	state = {
@@ -17,14 +18,11 @@ class EventDashboard extends Component {
 	handleCreateEvent = (newevent) =>{
 		newevent.id = cuid();
 		newevent.hostPhotoURL = "/assets/images/user.png";
-		const updatedEvents = [...this.state.events, newevent];
-		this.setState({
-			events: updatedEvents,
-			isOpen: false
-		})
+		this.props.createEventAction(newevent);
+		this.setState({isOpen: false});
 	}
 
-	handleOpenEvent = (event) => () =>{
+	handleOpenEvent = (event) =>{
 		this.setState({
 			selectedEvent: event,
 			isOpen: true
@@ -32,36 +30,27 @@ class EventDashboard extends Component {
 	}
 
 	handleUpdateEvent = (updatedEvent) =>{
-		const _updatedevent = this.state.events.map((event) =>{
-			if(event.id === updatedEvent.id){
-				return Object.assign({}, updatedEvent)
-			} else{
-				return event;
-			}
-		});
+		this.props.updateEventAction(updatedEvent);
 
 		this.setState({
-			events: _updatedevent,
 			isOpen: false,
 			selectedEvent: null
-		})
+		});
 	}
 
-	handleDeleteEvent = (id) => () =>{
-		const updatedEvents = this.state.events.filter(event => event.id !== id);
-		this.setState({events: updatedEvents});
+	handleDeleteEvent = (id) =>{
+		this.props.deleteEventAction(id);
 	}
 
 	render() {
 		const { selectedEvent } = this.state;
 		const { events } = this.props;
-
+		
 		return (
 			<div className="row">
 				<div className="col-md-8">
-					<EventList updateEvent={this.handleUpdateEvent} deleteEvent={this.handleDeleteEvent} onEventOpen={this.handleOpenEvent} events={events}/>
+					<EventList deleteEvent={this.handleDeleteEvent} onEventOpen={this.handleOpenEvent} events={events}/>
 				</div>
-
 				<div className="col-md-4">
 					<div>
 						<span
@@ -72,7 +61,7 @@ class EventDashboard extends Component {
 
 						{ this.state.isOpen &&
 							<div className="well">
-								<EventForm selectedEvent={selectedEvent} createEvent={this.handleCreateEvent} />
+								<EventForm updateEvent={this.handleUpdateEvent} selectedEvent={selectedEvent} createEvent={this.handleCreateEvent} />
 							</div>
 						}
 					</div>
@@ -82,10 +71,10 @@ class EventDashboard extends Component {
 	}
 }
 
-const mapStateToProps = (state) =>({
+const mapStateToProps = state =>({
 	events: state.events
 });
 
+const actions = { createEventAction, updateEventAction, deleteEventAction };
 
-
-export defaultconnect(mapStateToProps)(EventDashboard);
+export default connect(mapStateToProps, actions)(EventDashboard);

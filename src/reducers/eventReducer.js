@@ -1,10 +1,10 @@
 import { CREATE_EVENT, UPDATE_EVENT, DELETE_EVENT } from "../Actions/Events/EventActions";
-import { CreateEventReducer } from "../Util/reducerUtil";
+import { createReducer } from "../Util/reducerUtil";
 
 const initialState = [
   {
     id: '1',
-    title: 'Trip to Tower of London',
+    title: 'Trips to Tower of London',
     date: '2018-03-27',
     category: 'culture',
     description:
@@ -28,7 +28,7 @@ const initialState = [
   },
   {
     id: '2',
-    title: 'Trip to Punch and Judy Pub',
+    title: 'Trips to Punch and Judy Pub',
     date: '2018-03-28',
     category: 'drinks',
     description:
@@ -52,25 +52,23 @@ const initialState = [
   }
 ];
 
-const createEventReducer = (state, action) =>{
-	return [...state, action.payload.event];
+const createEventReducer = (state, payload) =>{
+	return [...state, payload.event];
 }
 
-const updateEventReducer = (state, action) =>{
+const updateEventReducer = (state, payload) =>{
 	return [
-		...state.filter(event => event.id !== action.payload.event.id),
-		Object.assign({}, action.payload.event)
+		...state.filter(event => event.id !== payload.event.id),
+		Object.assign({}, payload.event)
 	]
 }
 
-const deleteEventReducer = (state, action) =>{
-	return [
-		...state.filter(event => event.id !== action.payload.eventId)
-	]	
+const deleteEventReducer = (state, payload) =>{
+	return [...state.filter(event => event.id !== payload.eventId)];
 }
 
-export default CreateEventReducer(initialState, {
-	[CREATE_EVENT]: createEventReducer,
-	[UPDATE_EVENT]: updateEventReducer,
-	[DELETE_EVENT]: deleteEventReducer
+export default createReducer(initialState, {
+  [CREATE_EVENT]: createEventReducer,
+  [UPDATE_EVENT]: updateEventReducer,
+  [DELETE_EVENT]: deleteEventReducer
 });
