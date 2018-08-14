@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 
 const EventDetailHeader = (props) => {
 	const { event } = props;
@@ -16,7 +17,7 @@ const EventDetailHeader = (props) => {
 		  <div class="panel-footer clearfix">
 				<span className="btn btn-primary btn-md">Join This Event</span>
 				<span className="btn btn-default btn-md">Cancel My Place</span>
-				<span className="pull-right btn btn-warning btn-md">Manage Event</span>
+				<Link to={`/manage_event/${event.id}`} className="pull-right btn btn-warning btn-md">Manage Event</Link>
 		  </div>
 		</div>
   );

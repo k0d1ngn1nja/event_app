@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import EventList from "./EventList";
 import EventForm from "./EventForm/EventForm";
 import cuid from "cuid";
+import { Link } from "react-router-dom"
 import { connect } from "react-redux";
 import { createEventAction, updateEventAction, deleteEventAction } from "../../Actions/Events/EventActions";
 
@@ -53,11 +54,11 @@ class EventDashboard extends Component {
 				</div>
 				<div className="col-md-4">
 					<div>
-						<span
-							onClick={this.handleFormOpen}
+						<Link
+							to="/event/new"
 							className="newEvent_icon_btn">
-							<i className={this.state.isOpen ? "fas fa-minus" : "fas fa-plus"}></i>
-						</span>
+							<i className="fas fa-plus"></i>
+						</Link>
 
 						{ this.state.isOpen &&
 							<div className="well">

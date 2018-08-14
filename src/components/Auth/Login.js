@@ -7,7 +7,7 @@ const Login = (props) =>{
 			<li className="dropdown">
 	      <NavLink to="/" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></NavLink>
 	      <ul class="dropdown-menu">
-	        <li><NavLink to="/events/new">Create Event <i className="fas fa-plus"></i></NavLink></li>
+	        <li><NavLink to="/event/new">Create Event <i className="fas fa-plus"></i></NavLink></li>
 	        <li><NavLink to="/">My Events <i className="fas fa-calendar"></i></NavLink></li>
 	        <li><NavLink to="/">My Network <i className="fas fa-users"></i></NavLink></li>
 	        <li><NavLink to="/">My Profile <i className="fas fa-user"></i></NavLink></li>
